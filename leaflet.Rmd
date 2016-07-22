@@ -1,12 +1,16 @@
 ---
-title: "leaflet"
-author: "Edward Visel"
-date: "July 22, 2016"
+title: "Making Dynamic HTML Maps with Leaflet"
 output:
   html_notebook: 
     theme: flatly
   html_document: default
 ---
+
+[Leaflet](http://leafletjs.com/) is an open-source JavaScript library for making dynamic maps for the web. RStudio wrote R bindings for Leaflet, available through its [`leaflet` package](http://rstudio.github.io/leaflet/), built with [`htmlwidgets`](http://www.htmlwidgets.org/showcase_leaflet.html). Leaflet maps integrate well with the [RMarkdown](http://rmarkdown.rstudio.com/) and [Shiny](http://shiny.rstudio.com/) ecosystems.
+
+The interface is [piped](https://stackoverflow.com/documentation/r/652/pipe-operators-and-others), using a `leaflet()` function to initialize a map and subsequent functions adding (or removing) map layers. Many kinds of layers are available, from markers with popups to polygons for creating choropleth maps. Variables in the data.frame passed to `leaflet()` are accessed via function-style `~` quotation.
+
+To map the [`state.name` and `state.center` datasets](http://stat.ethz.ch/R-manual/R-patched/library/datasets/html/state.html):
 
 ```{r, fig.width=10}
 library(leaflet)
