@@ -1,0 +1,19 @@
+---
+title: "leaflet"
+author: "Edward Visel"
+date: "July 22, 2016"
+output:
+  html_notebook: 
+    theme: flatly
+  html_document: default
+---
+
+```{r, fig.width=10}
+library(leaflet)
+data.frame(state.name, state.center) %>% 
+  leaflet() %>% 
+  addProviderTiles('Stamen.Watercolor') %>% 
+  addMarkers(lng = ~x, lat = ~y, 
+             popup = ~state.name, 
+             clusterOptions = markerClusterOptions())
+```
